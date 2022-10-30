@@ -1,0 +1,10 @@
+body {
+    background-color: blue;
+    color:navajowhite
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
