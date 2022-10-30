@@ -8,3 +8,13 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+.row{
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+.column {
+   border: red 1px solid; 
+}
