@@ -11,10 +11,20 @@ body {
 
 .row{
 display: flex;
-justify-content: space-between;
+justify-content:space-between;
 align-items: center;
 
 }
 .column {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
    border: red 1px solid; 
+}
+
+.main {
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+       border: red 1px solid; 
 }
