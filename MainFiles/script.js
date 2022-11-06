@@ -2,7 +2,7 @@
 class runGame {
     constructor (element, options ={}) {
 
-        this.useCategoryIds=options.useCategoryIds || [14, 2929, 67, 10, 18280];
+        this.useCategoryIds=options.useCategoryIds || [14, 2929, 67, 10, 3061];
     
         //Information Arrays
         this.categories = [];
@@ -15,11 +15,29 @@ class runGame {
         //Elements
         this.boardElement = element.querySelector(".main");
         this.scoreCount = element.querySelector(".totalScore");
-    }
+        this.questionBoard = element.querySelector(".questionBoard");
+        this.questionCard = element.querySelector(".clue");
+        this.formElement = element.querySelector("form");
+        this.answerElement = element.querySelector("input[name=answer]");
+        this.resultElement = element.querySelector(".result");
+        this.correctAnsElement = element.querySelector(".correctAnswer")
+        this.successElement = element.querySelector(".success")
+        this.failureElement = element.querySelector(".failure")
+
+    }   
 
     initGame() {
         this.scoreCount.textContent = this.score;
         this.fetchCategories();
+
+        this.boardElement.addEventListener("click", event =>{
+            if (event.target.dataset.clueId) {
+                this.clueEvent(event);
+            }
+        });
+        //this.formElement.addEventListener("submit", even =>
+          //  this.
+            //)
     }
 
     fetchCategories() {
@@ -54,7 +72,8 @@ class runGame {
                  })
 
                 this.categories.push(newCategory);
-            })
+            });
+
             console.log(this)
                 this.categories.forEach((c) => {
                     this.addCategory(c);
@@ -71,7 +90,33 @@ class runGame {
             </ul>`
         ).trim();
 
+        var ul = column.querySelector('ul');
+        category.clues.forEach(clueId => {
+            var clue = this.clues[clueId];
+            ul.innerHTML += `<li><button data>${clue.value}</button></li>`
+        })
+
         this.boardElement.appendChild(column);
+
+    }
+
+    clueEvent(event) {
+        // var clue = this.clues[event.target.dataset.clueId];
+        // //marks button as used
+        // event.target.classList.add("used");
+        // //clears out field
+        // this.inputElement.value = "";
+        // //updates clue
+        // this.currentClue = clue;
+        // //updates clue text
+        // this.questionCard.textContent = this.currentClue.question;
+        // this.resultElement.textContent = this. currentClue.answer;
+        // //hide result
+        // this.questionBoard.classList.remove("showing-result");
+        // //show clue
+        // this.questionBoard.classList.add("visible");
+        // this.inputElement.focus();
+        alert("I have been Clicked")
 
     }
 

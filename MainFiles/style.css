@@ -28,3 +28,14 @@ align-items: center;
         align-items: center;
        border: red 1px solid; 
 }
+
+.main .column {
+        flex: 1;
+
+}
+
+.main .column li {
+
+    display:inline-flex;
+    justify-content: space-between;
+}
