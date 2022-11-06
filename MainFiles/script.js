@@ -27,21 +27,18 @@ class runGame {
     }   
 
     initGame() {
-        this.boardElement.addEventListener("click", event =>{
+        this.boardElement.addEventListener("click", event => {
             if (event.target.dataset.clueId) {
                 this.clueEvent(event);
             }
         });
 
         this.formElement.addEventListener("submit", event => {
-            this.submitEvent(event)
+            this.submitEvent(event);
         });
         
-        this.scoreCount.textContent = this.score;
+        this.updateScore(0);
         
-        // this.formElement.addEventListener("submit", even =>
-        //    this.
-        //     )
         this.fetchCategories();
         
     }
@@ -55,7 +52,7 @@ class runGame {
                         response.json()).then(data => {
                             resolve(data);
                         });
-                    });
+            });
         });
         Promise.all(categories).then(results => {
             results.forEach((result, categoryIndex) =>
@@ -117,14 +114,14 @@ class runGame {
         // //marks button as used
         event.target.classList.add("used");
         // //clears out field
-        this.answerElement.value = " ";
+        this.answerElement.value = "";
         // //updates clue
         this.currentClue = clue;
         // //updates clue text
         this.questionCard.textContent = this.currentClue.question;
-        this.resultElement.textContent = this. currentClue.answer;
+        this.correctAnsElement.textContent = this.currentClue.answer;
         // //hide result
-        this.questionBoard.classList.remove("showing-result");
+        var results = document.getElementsByClassName('result')
         // //show clue
         this.questionBoard.classList.add("visible");
         this.answerElement.focus();
@@ -144,12 +141,12 @@ class runGame {
 
     revealAnswer(correctAns) {
         this.successElement.style.display = correctAns ? "block" : "none";
-        this.failureElement.style.display = !correctAns ? "blcok" : "none";
+        this.failureElement.style.display = !correctAns ? "block" : "none";
 
         this.questionBoard.classList.add("showing-result");
 
         setTimeout (() => {
-            this.questionBoard.classlist.remove("visible");
+            this.questionBoard.classList.remove("visible");
         }, 3000);
             
     }

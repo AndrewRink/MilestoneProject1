@@ -39,3 +39,11 @@ align-items: center;
     display:inline-flex;
     justify-content: space-between;
 }
+
+.questionBoard {
+    opacity: 0;
+}
+
+.questionBoard.visible {
+    opacity: 1;
+}
