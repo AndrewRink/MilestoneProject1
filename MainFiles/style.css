@@ -40,8 +40,31 @@ align-items: center;
     justify-content: space-between;
 }
 
+.main .column button.used {
+    visibility: hidden;
+}
+
 .questionBoard {
     opacity: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: blue;
+    position: fixed;
+    pointer-events: none;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.questionBoard.showing-result .result {
+    display: block;
+}
+
+.result, .questionBoard.showing-result form {
+    display: none;
 }
 
 .questionBoard.visible {

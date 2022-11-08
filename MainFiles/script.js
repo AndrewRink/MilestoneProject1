@@ -131,12 +131,23 @@ class runGame {
     submitEvent(event) {
         event.preventDefault();
 
-        var correctAns = this.answerElement.value === this.currentClue.answer;
+        var correctAns = this.simplifyAnswer(this.answerElement.value) === 
+            this.simplifyAnswer(this.currentClue.answer);
         if (correctAns) {
             this.updateScore(this.currentClue.value)
         }
 
         this.revealAnswer(correctAns);
+    }
+
+    simplifyAnswer(input) {
+        var simpleAnswer = input.toLowerCase();
+        simpleAnswer = simpleAnswer.replace("<i>","");
+        simpleAnswer = simpleAnswer.replace("</i>","");
+        simpleAnswer = simpleAnswer.replace (/^a /, "");
+        simpleAnswer = simpleAnswer.replace(/^an/, "");
+        return simpleAnswer.trim();
+
     }
 
     revealAnswer(correctAns) {
@@ -152,7 +163,7 @@ class runGame {
     }
 
  }
-
+//taken from stackoverflow for simplicity
  function shuffle(a) {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
