@@ -1,5 +1,5 @@
 body {
-    background-color: blue;
+    background-color: navy;
     color:navajowhite
 }
 
@@ -25,20 +25,43 @@ align-items: center;
 .main {
         display: flex;
         justify-content:space-between;
+        flex-direction: row;
         align-items: center;
        border: red 1px solid; 
+       font-family:fantasy;
+       text-transform: uppercase;
 }
 
 .main .column {
+    display: flex;
+    flex-direction: column;
         flex: 1;
 
+}
+
+.main .column ul {
+    display:flex;
+    flex-direction: column;
+    background-color: blue;
+    border: red 1px solid;
 }
 
 .main .column li {
 
     display:inline-flex;
     justify-content: space-between;
+    color:navy;
+    height: 3em;
+    width: 4em;
+    margin: 3px;
+    border: red 1px solid
 }
+
+.main .column .button {
+    font-size: 3em;
+}
+
+
 
 .main .column button.used {
     visibility: hidden;
@@ -70,3 +93,4 @@ align-items: center;
 .questionBoard.visible {
     opacity: 1;
 }
+

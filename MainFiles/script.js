@@ -103,6 +103,7 @@ class runGame {
         this.boardElement.appendChild(column);
 
     }
+    
 
     updateScore(change) {
         this.score += change;
@@ -121,7 +122,7 @@ class runGame {
         this.questionCard.textContent = this.currentClue.question;
         this.correctAnsElement.textContent = this.currentClue.answer;
         // //hide result
-        var results = document.getElementsByClassName('result')
+        this.questionBoard.classList.remove("showing-result");
         // //show clue
         this.questionBoard.classList.add("visible");
         this.answerElement.focus();
@@ -153,6 +154,7 @@ class runGame {
     revealAnswer(correctAns) {
         this.successElement.style.display = correctAns ? "block" : "none";
         this.failureElement.style.display = !correctAns ? "block" : "none";
+        this.correctAnsElement.style.display = !correctAns ? "block" : "none";
 
         this.questionBoard.classList.add("showing-result");
 
@@ -163,6 +165,16 @@ class runGame {
     }
 
  }
+
+ //sounds
+ const clickSound = new Audio("./assets/sounds/Robot blip.mp3");
+ const buttons = document.querySelectorAll("button");
+ 
+ buttons.forEach( button => {
+     button.addEventListener("click", () => {
+         clickSound.play();
+     })
+ })
 //taken from stackoverflow for simplicity
  function shuffle(a) {
     var j, x, i;
@@ -173,6 +185,8 @@ class runGame {
         a[j] = x;
     }
     return a;
+
+    
 } 
 
 const game = new runGame(document.querySelector('.app'), {});
