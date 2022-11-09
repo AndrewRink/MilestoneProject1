@@ -1,6 +1,6 @@
 body {
     background-color: navy;
-    color:navajowhite
+    color:white
 }
 
 .header {
@@ -35,30 +35,32 @@ align-items: center;
 .main .column {
     display: flex;
     flex-direction: column;
-        flex: 1;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 
 }
 
-.main .column ul {
-    display:flex;
-    flex-direction: column;
-    background-color: blue;
-    border: red 1px solid;
-}
 
 .main .column li {
 
-    display:inline-flex;
-    justify-content: space-between;
-    color:navy;
-    height: 3em;
-    width: 4em;
-    margin: 3px;
+    display:flex;
+    color:navy;;
+    align-content: center;
+    right: 10px;
     border: red 1px solid
 }
 
-.main .column .button {
+
+.main .column button {
     font-size: 3em;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    margin: 5px;
+    background-color: blue;
+    color: rgb(250,225,47);
+    text-shadow: black 4px 4px;
 }
 
 
