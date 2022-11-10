@@ -9,6 +9,7 @@ body {
     align-items: center;
     font-size: larger; 
     flex-direction: row;
+    text-align: center;
 }
 
 .row{
@@ -30,6 +31,7 @@ align-items: center;
         justify-content:space-between;
         flex-direction: row;
         align-items: center;
+        text-align: center;
        border: red 1px solid; 
        font-family:fantasy;
        text-transform: uppercase;
@@ -49,23 +51,33 @@ align-items: center;
 .main .column header {
     background-color: blue;
     height: 3em;
-    text-align: center;
     align-items: center;
-    justify-content: center;
+    width: 90%;
     
-
 }
 
+.main .column ul {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    right: 22px;
+}
 
 .main .column li {
 
     display:flex;
     color:blue;
     align-content: center;
+    text-align: center;
     justify-items:center;
     border: red 1px solid;
     width: 100%;
 }
+
+
 
 
 .main .column button {
@@ -73,6 +85,7 @@ align-items: center;
     display: flex;
     align-content: center;
     justify-content: space-between;
+    text-align: center;
     margin: 5px;
     background-color: blue;
     color: rgb(250,225,47);
