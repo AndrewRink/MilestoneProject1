@@ -1,6 +1,6 @@
 body {
     background-color: navy;
-    color:white
+    color:white;
 }
 
 .header {
@@ -10,13 +10,6 @@ body {
     font-size: larger; 
     flex-direction: row;
     text-align: center;
-}
-
-.row{
-display: flex;
-justify-content:space-between;
-align-items: center;
-
 }
 
 .score {
@@ -40,7 +33,7 @@ align-items: center;
 
 .main {
         display: flex;
-        justify-content:space-between;
+        justify-content:space-around;
         flex-direction: row;
         align-items: center;
         text-align: center;
@@ -68,6 +61,7 @@ align-items: center;
     width: 90%;
     text-align: center;
     justify-content: center;
+    display: flex;
 }
 
 
@@ -90,14 +84,13 @@ align-items: center;
     justify-items:center;
     /* border: red 1px solid; */
     width: 100%;
+    position: relative;
+
 }
-
-
-
 
 .main .column button {
     font-size: 2em;
-    display: flex;
+    display: block;
     align-content: center;
     text-align: center;
     margin: 3px;
