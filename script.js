@@ -2,7 +2,7 @@
 class runGame {
     constructor (element, options ={}) {
 
-        this.useCategoryIds=options.useCategoryIds || [14, 2929, 67, 10, 3061];
+        this.useCategoryIds=options.useCategoryIds || [13634, 2929, 798, 9177, 11355];
     
         //Information Arrays
         this.categories = [];
@@ -42,7 +42,7 @@ class runGame {
         this.fetchCategories();
         
     }
-
+    //creates function to call jService API for categories and clues and build info arrays
     fetchCategories() {
         const categories =
         this.useCategoryIds.map(categoryId => {
@@ -61,9 +61,8 @@ class runGame {
                     title: result.title,
                     clues: []
                 }
-
+                //shuffle function shuffles clue results then deletes all but 5 to be placed in clues array
                 var clues = shuffle(result.clues).splice(0,5).forEach((clue, index) => {
-                    console.log(clue)
                     
                     var clueId = categoryIndex + "-" + index;
                     newCategory.clues.push(clueId);
@@ -83,7 +82,7 @@ class runGame {
                 });
         });
     }
-
+    //method to build and add category headers to html
     addCategory(category) {
         let column = document.createElement('div');
         column.classList.add('column');
@@ -92,7 +91,7 @@ class runGame {
             <ul>
             </ul>`
         ).trim();
-
+            //method to build and add clue columns to html
         var ul = column.querySelector('ul');
         category.clues.forEach(clueId => {
             var clue = this.clues[clueId];
@@ -104,12 +103,12 @@ class runGame {
 
     }
     
-
+    //updates score
     updateScore(change) {
         this.score += change;
         this.scoreCount.textContent = this.score;
     }
-
+    //method that handles clue display and class changes for full screen effect
     clueEvent(event) {
         var clue = this.clues[event.target.dataset.clueId];
         // //marks button as used
@@ -128,7 +127,7 @@ class runGame {
         this.answerElement.focus();
 
     }
-
+//method that allows user to submit answers
     submitEvent(event) {
         event.preventDefault();
 
@@ -140,7 +139,7 @@ class runGame {
 
         this.revealAnswer(correctAns);
     }
-
+    //method that allows a user to input a simple answer and stil be found correct
     simplifyAnswer(input) {
         var simpleAnswer = input.toLowerCase();
         simpleAnswer = simpleAnswer.replace("<i>","");
@@ -150,7 +149,7 @@ class runGame {
         return simpleAnswer.trim();
 
     }
-
+    //method that displays correct or failure screen and returns back to main question board
     revealAnswer(correctAns) {
         this.successElement.style.display = correctAns ? "block" : "none";
         this.failureElement.style.display = !correctAns ? "block" : "none";

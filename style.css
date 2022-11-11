@@ -19,6 +19,18 @@ align-items: center;
 
 }
 
+.score {
+    position: relative;
+    right:100px;
+    top: 25px
+}
+
+.totalScore {
+    position: relative;
+    bottom: 55px;
+    color: rgb(250,225,47);
+}
+
 .column {
     display: flex;
     justify-content:space-between;
@@ -54,8 +66,10 @@ align-items: center;
     height: 3em;
     align-items: center;
     width: 90%;
-    
+    text-align: center;
+    justify-content: center;
 }
+
 
 .main .column ul {
     width: 90%;
@@ -85,7 +99,6 @@ align-items: center;
     font-size: 2em;
     display: flex;
     align-content: center;
-    justify-content: space-between;
     text-align: center;
     margin: 3px;
     background-color: blue;
@@ -93,6 +106,8 @@ align-items: center;
     text-shadow: black 4px 4px;
     width: 100%;
     cursor: pointer;
+    position: relative;
+    left: 2px
 }
 
 
@@ -130,9 +145,17 @@ align-items: center;
 
 .success {
     font-size: xx-large;
+    color:rgb(3, 255, 3);
 }
 
 .failure {
     font-size: xx-large;
+    color: rgb(255, 40, 40)
+}
+
+.correctAnswer {
+    text-transform: capitalize;
+    color: rgb(250,225,47);
+    font-size:x-large;
 }
 
